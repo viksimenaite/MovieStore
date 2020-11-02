@@ -12,11 +12,11 @@ namespace MovieStore
         private MPAARating ageRating;
         private double basePrice;
 
-        public Movie(String name, DateTime releaseDate, int totalNoOfPurchases, MPAARating ageRating, double basePrice)
+        public Movie(String name, DateTime releaseDate, MPAARating ageRating, double basePrice)
         {
             this.name = name;
             this.releaseDate = releaseDate;
-            this.totalNoOfPurchases = totalNoOfPurchases;
+            this.totalNoOfPurchases = 0;
             this.ageRating = ageRating;
             this.basePrice = basePrice;
         }

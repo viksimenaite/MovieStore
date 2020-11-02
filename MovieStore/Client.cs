@@ -12,12 +12,12 @@ namespace MovieStore
         private int totalNoOfOrders; // number of orders since registration date
         private DateTime dateOfBirth;
 
-        public Client(String name, String surname, DateTime registrationDate, int totalNoOfOrders, DateTime dateOfBirth)
+        public Client(String name, String surname, DateTime registrationDate, DateTime dateOfBirth)
         {
             this.name = name;
             this.surname = surname;
             this.registrationDate = registrationDate;
-            this.totalNoOfOrders = totalNoOfOrders;
+            this.totalNoOfOrders = 0;
             this.dateOfBirth = dateOfBirth;
         }
 

@@ -36,14 +36,14 @@ namespace MovieStore
             }
             return price + 10.2;
         }
-        protected override double ApplyDiscount(Client client, Movie movie)
+        protected override double GetDiscount(Client client, Movie movie)
         {
-            double price = movie.BasePrice;
+            double discount = 0;
             if (client.TotalNoOfOrders > 30) //loyal client
             {
-                price *= (1 - loyalDiscount);
+                discount = loyalDiscount;
             }
-            return price;
+            return discount;
         }
 
     }

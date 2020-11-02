@@ -23,19 +23,20 @@ namespace MovieStore
             }
             return price;
         }
-        protected override double ApplyDiscount(Client client, Movie movie)
+        protected override double GetDiscount(Client client, Movie movie)
         {
-            double price = movie.BasePrice;
+            double discount = 0;
             if (client.TotalNoOfOrders > 10) //loyal client
             {
-                price *= loyalDiscount;
-            }
-            else if (client.CalculateAge() < 16) // discount for kids
-            {
-                price *= (1 - kidsDiscount);
+                discount = loyalDiscount;
             }
 
-            return price;
+            if (client.CalculateAge() < 16) // discount for kids
+            {
+                discount += kidsDiscount;
+            }
+
+            return discount;
         }
     }
 }
