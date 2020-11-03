@@ -6,7 +6,6 @@ namespace MovieStore
 {
     class LuxuryAdultMoviesStore : MovieStore
     {
-        private readonly double familyDiscount = 0.25;
         private readonly double loyalDiscount = 0.15;
         protected override bool IsAppropriateAge(Client client, Movie movie)
         {
@@ -30,7 +29,7 @@ namespace MovieStore
                 price += 5.5;
             }
 
-            if ((DateTime.Today.Year - movie.ReleaseDate.Year) > 60) //if movie is vintage
+            if ((DateTime.Today.Year - movie.ReleaseDate.Year) > 60) //if a movie is vintage
             {
                 price += 4.3;
             }
