@@ -10,21 +10,21 @@ namespace MovieStore
             MovieStore movieStore = new FamilyMovieStore();
             Client client = new Client("Tom", "Smith", "tommy2000", "123", new DateTime(2015, 5, 1), new DateTime(2000, 2, 9));
 
-            List<Movie> MovieList = new List<Movie>
+            List<Movie> movieList = new List<Movie>
             {
-                new Movie("Charlotte's Web", new DateTime(2006, 1, 1), MPAARating.G, 10.1),
-                new Movie("The Fault in Our Stars", new DateTime(2014, 1, 1), MPAARating.PG_13, 12.3),
+                new Movie("Up", new DateTime(2009, 1, 1), MPAARating.PG, 10.1),
+                new Movie("Willy Wonka and the Chocolate Factory", new DateTime(1971, 1, 1), MPAARating.PG_13, 12.3),
                 new Movie("Alone", new DateTime(2020, 2, 1), MPAARating.R, 10.1)
             };
 
-            Console.WriteLine("Welcome to the movie store!\r\n");
+        Console.WriteLine("Welcome to the movie store!\r\n");
 
             int count = 1;
             while (true)
             {
                 Console.WriteLine("\r\nWe are offering the following movies:");
 
-                foreach (Movie movie in MovieList)
+                foreach (Movie movie in movieList)
                 {
                     Console.WriteLine(count.ToString() + ". " + movie.Name);
                     count++;
@@ -33,12 +33,12 @@ namespace MovieStore
 
                 Console.WriteLine("\r\nEnter the number of the movie you would like to get:");
 
-                int index = GetIntInput(MovieList.Count);
+                int index = GetIntInput(movieList.Count);
 
-                double moviePrice = movieStore.Estimate(client, MovieList[index - 1]);
+                double moviePrice = movieStore.Estimate(client, movieList[index - 1]);
                 if (moviePrice > 0)
                 {
-                    Console.WriteLine("\r\nThe price of the movie \"" + MovieList[index - 1].Name + "\" is: " + Math.Round(moviePrice, 2, MidpointRounding.AwayFromZero) + " eur\r\n");
+                    Console.WriteLine("\r\nThe price of the movie \"" + movieList[index - 1].Name + "\" is: " + Math.Round(moviePrice, 2, MidpointRounding.AwayFromZero) + " eur\r\n");
                 }
                 else
                 {

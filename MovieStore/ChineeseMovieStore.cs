@@ -9,14 +9,16 @@ namespace MovieStore
         private readonly double loyalDiscount = 0.15;
         private readonly double kidsDiscount = 0.05;
         private readonly double PVM = 0.21;
-
-        public List<Movie> movieList = new List<Movie>
+        /*
+        private List<Movie> movieList = new List<Movie>
             {
                 new Movie("Toy Story", new DateTime(1995, 1, 1), MPAARating.G, 11.1),
                 new Movie("The Wizard of Oz", new DateTime(1939, 1, 1), MPAARating.PG, 12.5),
                 new Movie("Moana", new DateTime(2016, 2, 1), MPAARating.PG, 10.1)
             };
 
+        internal List<Movie> MovieList { get => movieList; set => movieList = value; }
+        */
         protected override bool IsAppropriateAge(Client client, Movie movie)
         {
             return true; // all movies are suitable for all ages in China

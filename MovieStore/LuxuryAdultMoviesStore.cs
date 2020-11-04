@@ -7,14 +7,16 @@ namespace MovieStore
     class LuxuryAdultMoviesStore : MovieStore
     {
         private readonly double loyalDiscount = 0.15;
-
-        public List<Movie> movieList = new List<Movie>
+        /*
+        private List<Movie> movieList = new List<Movie>
             {
                 new Movie("The Notebook", new DateTime(2004, 1, 1), MPAARating.PG_13, 10.1),
                 new Movie("Moulin Rouge", new DateTime(2001, 1, 1), MPAARating.PG_13, 12.3),
                 new Movie("Casablanca ", new DateTime(1942, 2, 1), MPAARating.PG, 10.1)
             };
 
+        internal List<Movie> MovieList { get => movieList; set => movieList = value; }
+        */
         protected override bool IsAppropriateAge(Client client, Movie movie)
         {
             int clientAge = client.CalculateAge();

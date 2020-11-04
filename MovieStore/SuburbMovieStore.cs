@@ -9,14 +9,16 @@ namespace MovieStore
         private readonly double kidsDiscount = 0.10;
         private readonly double loyalDiscount = 0.15;
         private readonly double PVM = 0.21;
-
-        public List<Movie> movieList = new List<Movie>
+        /*
+        private List<Movie> movieList = new List<Movie>
             {
                 new Movie("Up", new DateTime(2009, 1, 1), MPAARating.PG, 10.1),
                 new Movie("Willy Wonka and the Chocolate Factory", new DateTime(1971, 1, 1), MPAARating.PG_13, 12.3),
                 new Movie("Alone", new DateTime(2020, 2, 1), MPAARating.R, 10.1)
             };
 
+        internal List<Movie> MovieList { get => movieList; set => movieList = value; }
+        */
         protected override double DeterminePrice(Movie movie)
         {
             double price = movie.BasePrice; //base price
