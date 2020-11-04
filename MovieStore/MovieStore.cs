@@ -9,6 +9,7 @@ namespace MovieStore
         protected abstract Boolean IsAppropriateAge(Client client, Movie movie);
         protected abstract double DeterminePrice(Movie movie);
         protected abstract double GetDiscount(Client client, Movie movie);
+        protected abstract double CountFees(Movie movie);
 
         public double Estimate(Client client, Movie movie)
         {
@@ -16,7 +17,7 @@ namespace MovieStore
             {
                 client.TotalNoOfOrders++;
                 movie.TotalNoOfPurchases++;
-                return DeterminePrice(movie) * (1 - GetDiscount(client, movie));
+                return (DeterminePrice(movie) + CountFees(movie)) * (1 - GetDiscount(client, movie));
             }
             else
             {

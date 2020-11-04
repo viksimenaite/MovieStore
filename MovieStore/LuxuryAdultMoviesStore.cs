@@ -7,6 +7,8 @@ namespace MovieStore
     class LuxuryAdultMoviesStore : MovieStore
     {
         private readonly double loyalDiscount = 0.15;
+        private readonly double PVM = 0.21;
+
         protected override bool IsAppropriateAge(Client client, Movie movie)
         {
             int clientAge = client.CalculateAge();
@@ -43,6 +45,11 @@ namespace MovieStore
                 discount = loyalDiscount;
             }
             return discount;
+        }
+
+        protected override double CountFees(Movie movie)
+        {
+            return 0.0; //shady store
         }
 
     }

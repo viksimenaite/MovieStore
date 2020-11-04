@@ -8,6 +8,7 @@ namespace MovieStore
     {
         private readonly double kidsDiscount = 0.10;
         private readonly double loyalDiscount = 0.15;
+        private readonly double PVM = 0.21;
 
         protected override double DeterminePrice(Movie movie)
         {
@@ -37,6 +38,11 @@ namespace MovieStore
             }
 
             return discount;
+        }
+
+        protected override double CountFees(Movie movie)
+        {
+            return movie.BasePrice * PVM;
         }
     }
 }
