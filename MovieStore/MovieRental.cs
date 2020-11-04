@@ -6,9 +6,9 @@ namespace MovieStore
 {
     abstract class MovieRental
     {
-        protected abstract Boolean IsAppropriateAge(Client client, Movie movie);
-        protected abstract Boolean IsLegal(Movie movie);
-        protected abstract Boolean IsAlreadyInTheMarket(Movie movie);
+        protected abstract bool IsAppropriateAge(Client client, Movie movie);
+        protected abstract bool IsLegal(Movie movie);
+        protected abstract bool IsAlreadyInTheMarket(Movie movie);
 
         protected abstract double DeterminePrice(Movie movie);
         protected abstract double GetDiscount(Client client, Movie movie);

@@ -38,11 +38,11 @@ namespace MovieStore
             return 0.0; //shady store
         }
 
-        protected override Boolean IsLegal(Movie movie)
+        protected override bool IsLegal(Movie movie)
         {
             return true;
         }
-        protected override Boolean IsAlreadyInTheMarket(Movie movie)
+        protected override bool IsAlreadyInTheMarket(Movie movie)
         {
             if (DateTime.Today.Year < movie.ReleaseDate.Year)
             {

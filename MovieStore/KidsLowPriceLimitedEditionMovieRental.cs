@@ -41,11 +41,11 @@ namespace MovieStore
             return discount;
         }
 
-        protected override Boolean IsLegal(Movie movie)
+        protected override bool IsLegal(Movie movie)
         {
             return true;
         }
-        protected override Boolean IsAlreadyInTheMarket(Movie movie) 
+        protected override bool IsAlreadyInTheMarket(Movie movie) 
         {
             DateTime availableDate = movie.ReleaseDate.AddYears(1);
             if (DateTime.Today.Year < availableDate.Year)

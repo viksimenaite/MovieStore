@@ -45,11 +45,11 @@ namespace MovieStore
             return movie.BasePrice * PVM;
         }
 
-        protected override Boolean IsLegal(Movie movie)
+        protected override bool IsLegal(Movie movie)
         {
             return true;
         }
-        protected override Boolean IsAlreadyInTheMarket(Movie movie) //it takes 1 year to reach a suburb store
+        protected override bool IsAlreadyInTheMarket(Movie movie) //it takes 1 year to reach a suburb store
         {
             DateTime availableDate = movie.ReleaseDate.AddYears(1);
             if (DateTime.Today.Year < availableDate.Year)
