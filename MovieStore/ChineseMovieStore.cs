@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MovieStore
 {
-    class ChineseMovieStore : AllAgeGroupsMovieStore
+    class ChineseMovieStore : MovieStore
     {
         private readonly double loyalDiscount = 0.15;
         private readonly double kidsDiscount = 0.05;

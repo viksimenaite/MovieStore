@@ -8,6 +8,10 @@ namespace MovieStore
         static void Main(string[] args)
         {
             MovieStore movieStore = new FamilyMovieStore();
+            //MovieStore movieStore = new ChineseMovieStore();
+            //MovieStore movieStore = new LuxuryAdultMoviesStore();
+            //MovieStore movieStore = new SuburbMovieStore();
+
             Client client = new Client("Tom", "Smith", "tommy2000", "123", new DateTime(2015, 5, 1), new DateTime(2000, 2, 9));
 
             List<Movie> movieList = new List<Movie>

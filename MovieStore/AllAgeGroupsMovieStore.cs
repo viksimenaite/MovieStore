@@ -10,10 +10,6 @@ namespace MovieStore
         {
             bool isAppropriate = false;
             int clientAge = client.CalculateAge();
-            //int age = DateTime.Today.Year - client.DateOfBirth.Year;
-
-            // if (DateTime.Today.Month < client.DateOfBirth.Month || (DateTime.Today.Month == client.DateOfBirth.Month && DateTime.Today.Day < client.DateOfBirth.Day))
-            //    age--;
 
             switch (movie.AgeRating)
             {
