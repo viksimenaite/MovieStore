@@ -42,7 +42,7 @@ namespace MovieStore
                 }
                 else
                 {
-                    Console.WriteLine("\r\nSorry but you are too young for this movie.\r\n");
+                    Console.WriteLine("\r\nSorry, this movie is not suitable for you\r\n");
                 }
                
                 Console.WriteLine("Would you like to exit the program?");

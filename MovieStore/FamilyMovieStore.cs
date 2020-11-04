@@ -11,6 +11,13 @@ namespace MovieStore
         private readonly double loyalDiscount = 0.35;
         private readonly double PVM = 0.21;
 
+        public List<Movie> movieList = new List<Movie>
+            {
+                new Movie("Charlotte's Web", new DateTime(2006, 1, 1), MPAARating.G, 10.1),
+                new Movie("The Fault in Our Stars", new DateTime(2014, 1, 1), MPAARating.PG_13, 12.3),
+                new Movie("Alone", new DateTime(2020, 2, 1), MPAARating.R, 10.1)
+            };
+
         protected override double DeterminePrice(Movie movie)
         {
             double price = movie.BasePrice; //base price
@@ -43,6 +50,31 @@ namespace MovieStore
         protected override double CountFees(Movie movie)
         {
             return movie.BasePrice * PVM;
+        }
+
+        protected override Boolean IsLegal(Movie movie)
+        {
+            return true;
+        }
+        protected override Boolean IsAlreadyInTheMarket(Movie movie) //is available on the market after 2 months after release day
+        {
+            DateTime availableDate = movie.ReleaseDate.AddMonths(2);
+            if (DateTime.Today.Year < availableDate.Year)
+            {
+                return false;
+            }
+            else if (DateTime.Today.Month < availableDate.Month)
+            {
+                return false;
+            }
+            else if ((DateTime.Today.Month == availableDate.Month && DateTime.Today.Day < availableDate.Day))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

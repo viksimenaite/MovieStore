@@ -7,20 +7,18 @@ namespace MovieStore
     class LuxuryAdultMoviesStore : MovieStore
     {
         private readonly double loyalDiscount = 0.15;
-        private readonly double PVM = 0.21;
+
+        public List<Movie> movieList = new List<Movie>
+            {
+                new Movie("The Notebook", new DateTime(2004, 1, 1), MPAARating.PG_13, 10.1),
+                new Movie("Moulin Rouge", new DateTime(2001, 1, 1), MPAARating.PG_13, 12.3),
+                new Movie("Casablanca ", new DateTime(1942, 2, 1), MPAARating.PG, 10.1)
+            };
 
         protected override bool IsAppropriateAge(Client client, Movie movie)
         {
             int clientAge = client.CalculateAge();
-
-            if (clientAge >= 18)
-            {
-                return true;
-            }else
-            {
-                return false;
-            }
- 
+            return clientAge >= 18;
         }
 
         protected override double DeterminePrice(Movie movie)
@@ -50,6 +48,28 @@ namespace MovieStore
         protected override double CountFees(Movie movie)
         {
             return 0.0; //shady store
+        }
+
+        protected override Boolean IsLegal(Movie movie)
+        {
+            return true;
+        }
+        protected override Boolean IsAlreadyInTheMarket(Movie movie) //is available on the market on the release day
+        {
+            if (DateTime.Today.Year < movie.ReleaseDate.Year)
+            {
+                return false;
+            }else if (DateTime.Today.Month < movie.ReleaseDate.Month)
+            {
+                return false;
+            }else if ((DateTime.Today.Month == movie.ReleaseDate.Month && DateTime.Today.Day < movie.ReleaseDate.Day))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
     }

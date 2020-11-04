@@ -7,13 +7,16 @@ namespace MovieStore
     abstract class MovieStore
     {
         protected abstract Boolean IsAppropriateAge(Client client, Movie movie);
+        protected abstract Boolean IsLegal(Movie movie); 
+        protected abstract Boolean IsAlreadyInTheMarket(Movie movie);
+
         protected abstract double DeterminePrice(Movie movie);
         protected abstract double GetDiscount(Client client, Movie movie);
         protected abstract double CountFees(Movie movie);
 
         public double Estimate(Client client, Movie movie)
         {
-            if (IsAppropriateAge(client, movie))
+            if (IsAppropriateAge(client, movie) && IsLegal(movie) && IsAlreadyInTheMarket(movie))
             {
                 client.TotalNoOfOrders++;
                 movie.TotalNoOfPurchases++;
