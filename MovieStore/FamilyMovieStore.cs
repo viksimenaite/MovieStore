@@ -10,16 +10,7 @@ namespace MovieStore
         private readonly double familyDiscount = 0.25;
         private readonly double loyalDiscount = 0.35;
         private readonly double PVM = 0.21;
-        /*
-        private List<Movie> movieList = new List<Movie>
-            {
-                new Movie("Charlotte's Web", new DateTime(2006, 1, 1), MPAARating.G, 10.1),
-                new Movie("The Fault in Our Stars", new DateTime(2014, 1, 1), MPAARating.PG_13, 12.3),
-                new Movie("Alone", new DateTime(2020, 2, 1), MPAARating.R, 10.1)
-            };
 
-        internal List<Movie> MovieList { get => movieList; set => movieList = value; }
-        */
         protected override double DeterminePrice(Movie movie)
         {
             double price = movie.BasePrice; //base price

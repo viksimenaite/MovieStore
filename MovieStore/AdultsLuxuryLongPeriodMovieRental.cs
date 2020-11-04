@@ -4,9 +4,9 @@ using System.Text;
 
 namespace MovieStore
 {
-    class LuxuryAdultMoviesStore : MovieStore
+    class AdultsLuxuryLongPeriodMovieRental : LongPeriodMovieRental
     {
-        private readonly double loyalDiscount = 0.15;
+        private readonly double loyalDiscount = 0.10;
 
         protected override bool IsAppropriateAge(Client client, Movie movie)
         {
@@ -16,22 +16,17 @@ namespace MovieStore
 
         protected override double DeterminePrice(Movie movie)
         {
-            double price = movie.BasePrice; 
+            double price = movie.BasePrice;
             if (movie.TotalNoOfPurchases > 1500) //if movie is popular
             {
-                price += 5.5;
-            }
-
-            if ((DateTime.Today.Year - movie.ReleaseDate.Year) > 60) //if a movie is vintage
-            {
-                price += 4.3;
+                price += 8.5;
             }
             return price + 10.2;
         }
         protected override double GetDiscount(Client client, Movie movie)
         {
             double discount = 0;
-            if (client.TotalNoOfOrders > 30) //loyal client
+            if (client.TotalNoOfOrders > 20) //loyal client
             {
                 discount = loyalDiscount;
             }
@@ -47,15 +42,17 @@ namespace MovieStore
         {
             return true;
         }
-        protected override Boolean IsAlreadyInTheMarket(Movie movie) //is available on the market on the release day
+        protected override Boolean IsAlreadyInTheMarket(Movie movie)
         {
             if (DateTime.Today.Year < movie.ReleaseDate.Year)
             {
                 return false;
-            }else if (DateTime.Today.Month < movie.ReleaseDate.Month)
+            }
+            else if (DateTime.Today.Month < movie.ReleaseDate.Month)
             {
                 return false;
-            }else if ((DateTime.Today.Month == movie.ReleaseDate.Month && DateTime.Today.Day < movie.ReleaseDate.Day))
+            }
+            else if ((DateTime.Today.Month == movie.ReleaseDate.Month && DateTime.Today.Day < movie.ReleaseDate.Day))
             {
                 return false;
             }
@@ -64,6 +61,5 @@ namespace MovieStore
                 return true;
             }
         }
-
     }
 }
